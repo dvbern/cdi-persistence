@@ -32,39 +32,39 @@ import ch.dvbern.lib.cdipersistence.Persistence;
  */
 @Alternative
 @Transactional
-public class TestPersistenceService<T> implements Persistence<T> {
+public class TestPersistenceService implements Persistence {
 
 	@Inject
 	private EntityManager entityManager;
 
 	@Override
-	public T persist(final T entity) {
+	public <T> T persist(final T entity) {
 		entityManager.persist(entity);
 		return entity;
 	}
 
 	@Override
-	public T merge(final T entity) {
+	public <T> T merge(final T entity) {
 		return entityManager.merge(entity);
 	}
 
 	@Override
-	public void remove(final T entity) {
+	public <T> void remove(final T entity) {
 		entityManager.remove(entity);
 	}
 
 	@Override
-	public T find(final Class<T> entityClass, final Object primaryKey) {
+	public <T> T find(final Class<T> entityClass, final Object primaryKey) {
 		return entityManager.find(entityClass, primaryKey);
 	}
 
 	@Override
-	public T getReference(final Class<T> entityClass, final Object primaryKey) {
+	public <T> T getReference(final Class<T> entityClass, final Object primaryKey) {
 		return entityManager.getReference(entityClass, primaryKey);
 	}
 
 	@Override
-	public void remove(final Class<T> entityClass, final Object primaryKey) {
+	public <T> void remove(final Class<T> entityClass, final Object primaryKey) {
 		final T entity = entityManager.find(entityClass, primaryKey);
 		if (entity != null) {
 			entityManager.remove(entity);
@@ -77,12 +77,12 @@ public class TestPersistenceService<T> implements Persistence<T> {
 	}
 
 	@Override
-	public List<T> getCriteriaResults(final CriteriaQuery<T> query) {
+	public <T> List<T> getCriteriaResults(final CriteriaQuery<T> query) {
 		return entityManager.createQuery(query).getResultList();
 	}
 
 	@Override
-	public List<T> getCriteriaResults(final CriteriaQuery<T> query, int maxResults) {
+	public <T> List<T> getCriteriaResults(final CriteriaQuery<T> query, int maxResults) {
 		TypedQuery<T> query1 = entityManager.createQuery(query);
 		query1.setMaxResults(maxResults);
 		return query1.getResultList();
@@ -94,7 +94,7 @@ public class TestPersistenceService<T> implements Persistence<T> {
 	}
 
 	@Override
-	public T getCriteriaSingleResult(final CriteriaQuery<T> query) {
+	public <T> T getCriteriaSingleResult(final CriteriaQuery<T> query) {
 		try {
 			return entityManager.createQuery(query).getSingleResult();
 		} catch (NoResultException ignored) {

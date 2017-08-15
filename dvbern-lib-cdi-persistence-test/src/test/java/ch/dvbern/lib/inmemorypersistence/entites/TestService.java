@@ -37,7 +37,7 @@ import org.junit.runner.RunWith;
 public class TestService {
 
 	@Inject
-	private Persistence<TestEntity> persistence;
+	private Persistence persistence;
 
 	@Test
 	public void doTest() {

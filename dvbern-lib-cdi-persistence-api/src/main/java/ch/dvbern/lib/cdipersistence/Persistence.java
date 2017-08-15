@@ -25,7 +25,7 @@ import javax.persistence.criteria.CriteriaQuery;
  * Persistenz für Basisentitaeten
  */
 @SuppressWarnings("ElementOnlyUsedFromTestCode")
-public interface Persistence<T> {
+public interface Persistence {
 
 	/**
 	 * Make an instance managed and persistent.
@@ -40,7 +40,7 @@ public interface Persistence<T> {
 	 * @throws IllegalArgumentException                       if the instance is not an
 	 *                                                        entity
 	 */
-	T persist(T entity);
+	<T> T persist(T entity);
 
 	/**
 	 * Merge the state of the given entity into the
@@ -55,7 +55,7 @@ public interface Persistence<T> {
 	 *                                                        {@code PersistenceContextType.TRANSACTION} and there is
 	 *                                                        no transaction
 	 */
-	T merge(T entity);
+	<T> T merge(T entity);
 
 	/**
 	 * Remove the entity instance.
@@ -68,7 +68,7 @@ public interface Persistence<T> {
 	 *                                                        {@code PersistenceContextType.TRANSACTION} and there is
 	 *                                                        no transaction
 	 */
-	void remove(T entity);
+	<T> void remove(T entity);
 
 	/**
 	 * Find by primary key.
@@ -85,7 +85,7 @@ public interface Persistence<T> {
 	 *                                  is not a valid type for that entitys primary key or
 	 *                                  is null
 	 */
-	T find(Class<T> entityClass, Object primaryKey);
+	<T> T find(Class<T> entityClass, Object primaryKey);
 
 	/**
 	 * Get an instance, whose state may be lazily fetched.
@@ -108,12 +108,12 @@ public interface Persistence<T> {
 	 * @throws javax.persistence.EntityNotFoundException if the entity state
 	 *                                                   cannot be accessed
 	 */
-	T getReference(Class<T> entityClass, Object primaryKey);
+	<T> T getReference(Class<T> entityClass, Object primaryKey);
 
 	/**
 	 * Remove by primary Key.
 	 */
-	void remove(Class<T> entityClass, Object primaryKey);
+	<T> void remove(Class<T> entityClass, Object primaryKey);
 
 	/**
 	 * Return an instance of {@code CriteriaBuilder} for the creation of
@@ -131,14 +131,14 @@ public interface Persistence<T> {
 	 * @param <T> Type of Entity to return
 	 * @return resultlist
 	 */
-	List<T> getCriteriaResults(CriteriaQuery<T> query);
+	<T> List<T> getCriteriaResults(CriteriaQuery<T> query);
 
 	/**
 	 * @param query the query to execute
 	 * @param <T> Type of Entity to return
 	 * @return resultlist with maxResults entries
 	 */
-	List<T> getCriteriaResults(final CriteriaQuery<T> query, int maxResults);
+	<T> List<T> getCriteriaResults(final CriteriaQuery<T> query, int maxResults);
 
 	/**
 	 * @param query the query to execute
@@ -148,7 +148,7 @@ public interface Persistence<T> {
 	 * @throws javax.persistence.NonUniqueResultException if more than one result
 	 * @throws IllegalStateException                      if called for a Java Persistence query language UPDATE or DELETE statement
 	 */
-	T getCriteriaSingleResult(CriteriaQuery<T> query);
+	<T> T getCriteriaSingleResult(CriteriaQuery<T> query);
 
 	/**
 	 * Returns the EntityManager
