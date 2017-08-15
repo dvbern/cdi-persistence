@@ -1,33 +1,36 @@
 # dvbern-lib-cdi-persistence-api
 
-This library can be used to make instances managed and persistent.
+This library provides an abstraction of the entity manager and can be used to make instances managed and persistent.
 
 ## Getting Started
 
 These instructions will get you an overview on how to implement and use the dvbern-lib-cdi-persistence-api library. See further down for installing or deployment notes.
 
-### Prerequisites
+### Usage
 
 <What things you need to install the software and how to install them>
 
+1. Add the following dependencies to your project:
 ```
-<example>
+<dependency>
+	<groupId>ch.dvbern.lib</groupId>
+	<artifactId>dvbern-lib-cdi-persistence-api</artifactId>
+	<version>1.0</version>
+</dependency>
+<dependency>
+	<groupId>ch.dvbern.lib</groupId>
+	<artifactId>dvbern-lib-cdi-persistence-test</artifactId>
+	<version>1.0</version>
+	<scope>test</scope>
+</dependency>
 ```
+2. Write your PersistenceService, implementing the Interface Persistence
 
-### Installing
+3. The persistence.xml found in the test-sources of the cdi-persistence-test-Module must be copied to the test-sources of your project as it references the (project specific) orm.xml (Adapt path if necessary)
 
-<A step by step series of examples to get a development env running>
+4. Do not change the attribute "javax.persistence.jdbc.url" as it es referenced by the ch.dvbern.lib.inmemorypersistence.TestPersistenceManager.
 
-<This step does this>
-
-```
-<example>
-```
-
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+5. Inject Persistence in your Tests: Your entities will be saved in a in-memory HSQLDB that will be cleared after each test.
 
 ## Built With
 
