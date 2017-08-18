@@ -1,10 +1,10 @@
-# dvbern-lib-cdi-persistence-api
+# cdi-persistence
 
 This library provides an abstraction of the entity manager and can be used to make instances managed and persistent.
 
 ## Getting Started
 
-These instructions will get you an overview on how to implement and use the dvbern-lib-cdi-persistence-api library. See further down for installing or deployment notes.
+These instructions will get you an overview on how to implement and use the cdi-persistence library. See further down for installing or deployment notes.
 
 ### Usage
 
@@ -13,13 +13,13 @@ These instructions will get you an overview on how to implement and use the dvbe
 1. Add the following dependencies to your project:
 ```
 <dependency>
-	<groupId>ch.dvbern.lib</groupId>
-	<artifactId>dvbern-lib-cdi-persistence-api</artifactId>
+	<groupId>ch.dvbern.oss.cdipersistenceapi</groupId>
+	<artifactId>cdi-persistence-api</artifactId>
 	<version>1.0</version>
 </dependency>
 <dependency>
-	<groupId>ch.dvbern.lib</groupId>
-	<artifactId>dvbern-lib-cdi-persistence-test</artifactId>
+	<groupId>ch.dvbern.oss.cdipersistencetest</groupId>
+	<artifactId>cdi-persistence-test</artifactId>
 	<version>1.0</version>
 	<scope>test</scope>
 </dependency>
@@ -49,7 +49,7 @@ One healthy social atmospehere is very important to us, wherefore we rate our Co
 
 * **DV Bern AG** - *Initial work* - [dvbern](https://github.com/dvbern)
 
-See also the list of [contributors](https://github.com/dvbern/lib-cdi-persistence-api/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/dvbern/cdi-persistence/contributors) who participated in this project.
 
 ## License
 
