@@ -23,8 +23,8 @@
 		<version>1.0.3</version>
 	</parent>
 
-	<groupId>ch.dvbern.oss.lib.dvbern-lib-cdi-persistence</groupId>
-	<artifactId>dvbern-lib-cdi-persistence</artifactId>
+	<groupId>ch.dvbern.oss.cdipersistence</groupId>
+	<artifactId>cdi-persistence</artifactId>
 	<version>2.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -51,12 +51,12 @@
 
 	<issueManagement>
 		<system>github-issues</system>
-		<url>https://github.com/dvbern/lib-cdi-persistence/issues</url>
+		<url>https://github.com/dvbern/cdi-persistence/issues</url>
 	</issueManagement>
 
 	<modules>
-		<module>dvbern-lib-cdi-persistence-api</module>
-		<module>dvbern-lib-cdi-persistence-test</module>
+		<module>cdi-persistence-api</module>
+		<module>cdi-persistence-test</module>
 	</modules>
 
 </project>
