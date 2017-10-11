@@ -17,6 +17,7 @@ package ch.dvbern.lib.inmemorypersistence;
 
 import java.util.List;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -32,6 +33,7 @@ import ch.dvbern.lib.cdipersistence.Persistence;
  */
 @Alternative
 @Transactional
+@Dependent
 public class TestPersistenceService implements Persistence {
 
 	@Inject
