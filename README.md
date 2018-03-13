@@ -13,12 +13,12 @@ These instructions will get you an overview on how to implement and use the cdi-
 1. Add the following dependencies to your project:
 ```
 <dependency>
-	<groupId>ch.dvbern.oss.cdipersistenceapi</groupId>
+	<groupId>ch.dvbern.oss.cdipersistence</groupId>
 	<artifactId>cdi-persistence-api</artifactId>
 	<version>1.0</version>
 </dependency>
 <dependency>
-	<groupId>ch.dvbern.oss.cdipersistencetest</groupId>
+	<groupId>ch.dvbern.oss.cdipersistence</groupId>
 	<artifactId>cdi-persistence-test</artifactId>
 	<version>1.0</version>
 	<scope>test</scope>
