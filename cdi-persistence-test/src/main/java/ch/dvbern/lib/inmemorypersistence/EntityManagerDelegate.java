@@ -15,19 +15,24 @@
 
 package ch.dvbern.lib.inmemorypersistence;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.FlushModeType;
 import javax.persistence.LockModeType;
 import javax.persistence.Query;
+import javax.persistence.StoredProcedureQuery;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.metamodel.Metamodel;
 
 @ApplicationScoped
@@ -235,4 +240,60 @@ public class EntityManagerDelegate implements EntityManager {
 	public void flush() {
 		entityManagerStore.get().flush();
 	}
-}
+
+	@Override
+	public Query createQuery(CriteriaUpdate updateQuery) {
+		return entityManagerStore.get().createQuery(updateQuery);
+	}
+
+	@Override
+	public Query createQuery(CriteriaDelete deleteQuery) {
+		return entityManagerStore.get().createQuery(deleteQuery);
+	}
+
+	@Override
+	public StoredProcedureQuery createNamedStoredProcedureQuery(String name) {
+		return entityManagerStore.get().createNamedStoredProcedureQuery(name);
+	}
+
+	@Override
+	public StoredProcedureQuery createStoredProcedureQuery(String procedureName) {
+		return entityManagerStore.get().createStoredProcedureQuery(procedureName);
+
+		}
+
+		@Override
+		public StoredProcedureQuery createStoredProcedureQuery (String procedureName, Class...resultClasses){
+			return entityManagerStore.get().createStoredProcedureQuery(procedureName, resultClasses);
+		}
+
+		@Override
+		public StoredProcedureQuery createStoredProcedureQuery (String procedureName, String...resultSetMappings){
+			return entityManagerStore.get().createStoredProcedureQuery(procedureName, resultSetMappings);
+		}
+
+		@Override
+		public boolean isJoinedToTransaction () {
+			return entityManagerStore.get().isJoinedToTransaction();
+		}
+
+		@Override
+		public <T> EntityGraph<T> createEntityGraph (Class < T > rootType) {
+			return entityManagerStore.get().createEntityGraph(rootType);
+		}
+
+		@Override
+		public EntityGraph<?> createEntityGraph (String graphName){
+			return entityManagerStore.get().createEntityGraph(graphName);
+		}
+
+		@Override
+		public EntityGraph<?> getEntityGraph (String graphName){
+			return entityManagerStore.get().getEntityGraph(graphName);
+		}
+
+		@Override
+		public <T> List<EntityGraph<? super T>> getEntityGraphs (Class < T > entityClass) {
+			return entityManagerStore.get().getEntityGraphs(entityClass);
+		}
+	}

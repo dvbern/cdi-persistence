@@ -20,6 +20,7 @@
 				 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 				 version="1.0">
 
-	<entity class="ch.dvbern.lib.inmemorypersistence.entites.TestEntity"/>
+	<!--changed in 2.0.4, darf scheinbar nicht mehr so definiert werden sonst gibts duplicate ex-->
+	<!--<entity class="ch.dvbern.lib.inmemorypersistence.entites.TestEntity"/>-->
 
 </entity-mappings>
