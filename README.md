@@ -8,8 +8,6 @@ These instructions will get you an overview on how to implement and use the cdi-
 
 ### Usage
 
-<What things you need to install the software and how to install them>
-
 1. Add the following dependencies to your project:
 ```
 <dependency>

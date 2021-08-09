@@ -31,6 +31,7 @@ public interface Persistence {
 	 * Make an instance managed and persistent.
 	 *
 	 * @param entity entity instance
+	 * @param <T> entity type
 	 * @return the persisted entity
 	 * @throws javax.persistence.EntityExistsException        if the entity already exists.
 	 *                                                        (If the entity already exists, the {@code EntityExistsException} may
@@ -47,6 +48,7 @@ public interface Persistence {
 	 * current persistence context.
 	 *
 	 * @param entity entity instance
+	 * @param <T> entity type
 	 * @return the managed instance that the state was merged to
 	 * @throws IllegalArgumentException                       if instance is not an
 	 *                                                        entity or is a removed entity
@@ -61,6 +63,7 @@ public interface Persistence {
 	 * Remove the entity instance.
 	 *
 	 * @param entity entity instance
+	 * @param <T> entity type
 	 * @throws IllegalArgumentException                       if the instance is not an
 	 *                                                        entity or is a detached entity
 	 * @throws javax.persistence.TransactionRequiredException if invoked on a
@@ -78,6 +81,7 @@ public interface Persistence {
 	 *
 	 * @param entityClass entity class
 	 * @param primaryKey primary key
+	 * @param <T> entity type
 	 * @return the found entity instance or null if the entity does
 	 * not exist
 	 * @throws IllegalArgumentException if the first argument does
@@ -100,6 +104,7 @@ public interface Persistence {
 	 *
 	 * @param entityClass entity class
 	 * @param primaryKey primary key
+	 * @param <T> entity type
 	 * @return the found entity instance
 	 * @throws IllegalArgumentException                  if the first argument does
 	 *                                                   not denote an entity type or the second argument is
@@ -112,6 +117,10 @@ public interface Persistence {
 
 	/**
 	 * Remove by primary Key.
+	 *
+	 * @param entityClass entity class
+	 * @param primaryKey primary key
+	 * @param <T> entity type
 	 */
 	<T> void remove(Class<T> entityClass, Object primaryKey);
 
@@ -151,7 +160,7 @@ public interface Persistence {
 	<T> T getCriteriaSingleResult(CriteriaQuery<T> query);
 
 	/**
-	 * Returns the EntityManager
+	 * @return the EntityManager
 	 */
 	EntityManager getEntityManager();
 }

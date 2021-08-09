@@ -19,7 +19,7 @@ import java.security.Principal;
 
 /**
  * Interface fuer den SessionContextService.
- * Im WELD-Container gibt es keinen SessionContext -> dies ist ein Beispiel, wie z.b. der eingeloggte
+ * Im WELD-Container gibt es keinen SessionContext.  Dies ist ein Beispiel, wie z.b. der eingeloggte
  * Benutzer in einem Test "gemockt" werden kann.
  * Die Produktive Implementierung muesste dann @Resource private SessionContext sessionContext;
  * verwenden und die Aufrufe delegieren
