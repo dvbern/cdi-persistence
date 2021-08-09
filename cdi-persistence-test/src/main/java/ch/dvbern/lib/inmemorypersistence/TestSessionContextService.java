@@ -23,7 +23,7 @@ import ch.dvbern.lib.cdipersistence.ISessionContextService;
 
 /**
  * Alternativer SessionContext fuer Tests.
- * Im WELD-Container gibt es keinen SessionContext -> dies ist ein Beispiel, wie z.b. der eingeloggte
+ * Im WELD-Container gibt es keinen SessionContext. Dies ist ein Beispiel, wie z.b. der eingeloggte
  * Benutzer in einem Test "gemockt" werden kann.
  */
 @Alternative
